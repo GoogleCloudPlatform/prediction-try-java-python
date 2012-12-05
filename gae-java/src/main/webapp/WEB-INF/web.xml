@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>
+            com.google.tryPredictionJava.web.IndexServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AuthReturnServlet</servlet-name>
+        <servlet-class>
+            com.google.tryPredictionJava.web.AuthReturnServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthReturnServlet</servlet-name>
+        <url-pattern>/auth_return</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ResetServlet</servlet-name>
+        <servlet-class>
+            com.google.tryPredictionJava.web.ResetServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResetServlet</servlet-name>
+        <url-pattern>/reset</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PredictServlet</servlet-name>
+        <servlet-class>
+            com.google.tryPredictionJava.web.PredictServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PredictServlet</servlet-name>
+        <url-pattern>/predict</url-pattern>
+    </servlet-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <url-pattern>/reset</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>
+    </welcome-file-list>
+</web-app>

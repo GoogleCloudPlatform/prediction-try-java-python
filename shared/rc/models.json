@@ -1,0 +1,30 @@
+{
+  "Language Detection" : {
+    "model_id"    : "languages",
+    "user_list"   : {},
+    "description" : "This model infers the language of text input.",
+    "fields"      : [
+      {
+        "label" : "Phrase",
+        "help"  : "Enter text in English, French or Spanish.",
+        "rows"  : "1",
+        "cols"  : "50"
+      }
+    ]
+  },
+  "SMS Spam Detection" : {
+    "model_id"    : "smsspam",
+    "user_list"   : {},
+    "description" :
+      "This model classifies SMS messages as spam or ham (legitimate).",
+    "fields"      : [
+      {
+        "label" : "Text Message",
+        "help"  : "Enter a text message for spam analysis.",
+        "rows"  : "3",
+        "cols"  : "50"
+      }
+    ]
+  }
+}
+

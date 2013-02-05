@@ -55,39 +55,39 @@ Dependencies for the Java version:
 
 Getting Started
 
- 1. Clone this repo into a new directory.
+1. Clone this repo into a new directory.
 
- 1. Customize the following files:
+1. Customize the following files:
 
-  - In shared/rc/client_secrets.json, replace the placeholder strings with your actual client id and 
-    client secret from the Google APIs console.
+    - In shared/rc/client_secrets.json, replace the placeholder strings with your actual client id and 
+      client secret from the Google APIs console.
 
-  - In shared/rc/models.json, enter information about the model(s) you would like to use, following 
-    the format shown for the two sample models.
+    - In shared/rc/models.json, enter information about the model(s) you would like to use, following 
+      the format shown for the two sample models.
 
-  - Java only: edit the file gae-java/src/main/java/com/google/tryPredictionJava/web/IndexServlet.java 
-    to specify your redirect URI, which should be your app's base URI + 
-    /auth_return, e.g. http://your-app-name.appspot.com/auth_return.
+    - Java only: edit the file gae-java/src/main/java/com/google/tryPredictionJava/web/IndexServlet.java 
+      to specify your redirect URI, which should be your app's base URI + 
+      /auth_return, e.g. http://your-app-name.appspot.com/auth_return.
 
-  - Add your redirect URI (defined in previous step) to the list of valid 
-    redirect URIs in the "API Access" tab of the APIs Console. If you miss 
-    this step, you'll get a 'redirect_uri_mismatch' error during initial 
-    authorization of the shared server credentials.
+    - Add your redirect URI (defined in previous step) to the list of valid 
+      redirect URIs in the "API Access" tab of the APIs Console. If you miss 
+      this step, you'll get a 'redirect_uri_mismatch' error during initial 
+      authorization of the shared server credentials.
 
- 1. Build and deploy your app:
+1. Build and deploy your app:
 
-  - For Python: modify the "application:" line in your app.yaml file to 
-    reflect your chosen app name and use the Google App Engine tools to 
-    deploy your app.
+    - For Python: modify the "application:" line in your app.yaml file to 
+      reflect your chosen app name and use the Google App Engine tools to 
+      deploy your app.
 
-  - For Java: modify the contents of the "application" XML element in 
-    your gae-java/src/main/webapp/WEB-INF/appengine-web.xml file to 
-    reflect your chosen app name and use the Maven plugin for Google 
-    App Engine to deploy your app (you need to run "mvn gae:unpack" 
-    once and then you can subsequently deploy your app repeatedly 
-    with "mvn gae:deploy").
+    - For Java: modify the contents of the "application" XML element in 
+      your gae-java/src/main/webapp/WEB-INF/appengine-web.xml file to 
+      reflect your chosen app name and use the Maven plugin for Google 
+      App Engine to deploy your app (you need to run "mvn gae:unpack" 
+      once and then you can subsequently deploy your app repeatedly 
+      with "mvn gae:deploy").
 
- 1. The first time you access your app, it will step you through the login 
+1. The first time you access your app, it will step you through the login 
    and OAuth 2.0 sequence, however, all access thereafter, by you or anyone 
    else, will reuse your initially established security credentials. If you 
    ever wish to change or re-establish the shared server credentials, simply 

@@ -55,11 +55,9 @@ Dependencies for the Java version:
 
 Getting Started
 
-1. Download the latest tarfile available on the "Download" tab.
+1. Clone this repo into a new directory.
 
-2. Unpack the runtime package into a new directory.
-
-3. Customize the following files:
+2. Customize the following files:
 
    - In shared/rc/client_secrets.json, replace the placeholder strings 
      with your actual client id and client secret from the Google APIs console.
@@ -77,7 +75,7 @@ Getting Started
      this step, you'll get a 'redirect_uri_mismatch' error during initial 
      authorization of the shared server credentials.
 
-4. Build and deploy your app:
+3. Build and deploy your app:
 
    - For Python: modify the "application:" line in your app.yaml file to 
      reflect your chosen app name and use the Google App Engine tools to 

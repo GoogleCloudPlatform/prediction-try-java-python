@@ -88,7 +88,7 @@ Getting Started
      once and then you can subsequently deploy your app repeatedly 
      with "mvn gae:deploy").
 
-5. The first time you access your app, it will step you through the login 
+4. The first time you access your app, it will step you through the login 
    and OAuth 2.0 sequence, however, all access thereafter, by you or anyone 
    else, will reuse your initially established security credentials. If you 
    ever wish to change or re-establish the shared server credentials, simply 

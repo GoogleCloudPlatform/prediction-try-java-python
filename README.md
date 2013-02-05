@@ -59,14 +59,13 @@ Getting Started
 
 1. Customize the following files:
 
-   - In shared/rc/client_secrets.json, replace the placeholder strings 
-     with your actual client id and client secret from the Google APIs console.
+  - In shared/rc/client_secrets.json, replace the placeholder strings with your actual client id and 
+    client secret from the Google APIs console.
 
-   - In shared/rc/models.json, enter information about the model(s) you 
-     would like to use , following the format shown for the two sample models.
+  - In shared/rc/models.json, enter information about the model(s) you would like to use, following 
+    the format shown for the two sample models.
 
-   - Java only: edit the file
-     gae-java/src/main/java/com/google/tryPredictionJava/web/IndexServlet.java 
+  - Java only: edit the file gae-java/src/main/java/com/google/tryPredictionJava/web/IndexServlet.java 
      to specify your redirect URI, which should be your app's base URI + 
      /auth_return, e.g. http://your-app-name.appspot.com/auth_return.
 

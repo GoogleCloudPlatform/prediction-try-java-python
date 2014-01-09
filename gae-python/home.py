@@ -74,7 +74,7 @@ class HomePage(webapp.RequestHandler):
       # which will force a login to make sure this user has permission
       # to initialize the shared server credentials.
       if not user:
-        self.redirect("/reset")
+        self.redirect("/reset", abort=True)
 
       # Read and parse client secrets JSON file.
       secrets = parse_json_file(SECRETS_FILE)

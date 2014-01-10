@@ -69,9 +69,11 @@ class HomePage(webapp.RequestHandler):
 
       # Read and parse client secrets JSON file.
       secrets = parse_json_file(SECRETS_FILE)
-
-      client_id = secrets['installed']['client_id']
-      client_secret = secrets['installed']['client_secret']
+      type = 'web'
+      if is_dev_server():
+          type = 'installed'
+      client_id = secrets[type]['client_id']
+      client_secret = secrets[type]['client_secret']
 
       flow = OAuth2WebServerFlow(client_id=client_id,
                                  client_secret=client_secret,

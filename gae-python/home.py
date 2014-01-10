@@ -18,6 +18,7 @@
 
 '''Render Home Page.'''
 
+import os
 import json
 import logging
 import pickle
@@ -42,16 +43,6 @@ DEFAULT_MODEL = 'Language Detection'
 SECRETS_FILE = 'rc/client_secrets.json'
 MODELS_FILE = 'rc/models.json'
 
-
-def parse_json_file(file):
-  '''Utility function to open, read, and parse the contents of
-     a file containing text encoded as a JSON document, and
-     return resulting json object to caller.
-  '''
-  f = open(file, 'r')
-  json_str = f.read()
-  f.close()
-  return json.loads(json_str)
 
 class HomePage(webapp.RequestHandler):
   '''This class renders the main home page for the "Try Prediction" app.'''
@@ -145,3 +136,16 @@ class Reset(webapp.RequestHandler):
     StorageByKeyName(CredentialsModel, USER_AGENT,
                      'credentials').locked_put(None)
     self.redirect('/')
+
+def is_dev_server():
+  return os.environ['SERVER_SOFTWARE'].startswith('Dev')
+
+def parse_json_file(file):
+  '''Utility function to open, read, and parse the contents of
+     a file containing text encoded as a JSON document, and
+     return resulting json object to caller.
+  '''
+  f = open(file, 'r')
+  json_str = f.read()
+  f.close()
+  return json.loads(json_str)

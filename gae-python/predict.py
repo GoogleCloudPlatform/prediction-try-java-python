@@ -72,7 +72,10 @@ class PredictAPI(webapp.RequestHandler):
       logging.info('model:' + model_name + ' body:' + str(body))
 
       # Make a prediction and return JSON results to Javascript client.
-      ret = papi.predict(id=model['model_id'], body=body).execute()
+      if model['type'] == 'hosted':
+        ret = service.hostedmodels().predict(project=model['project'], hostedModelName=model['hostedModelName'], body=body).execute()
+      if model['type'] == 'trained':
+        ret = papi.predict(id=model['model_id'], body=body).execute()
       self.response.out.write(json.dumps(ret))
 
     except Exception, err:

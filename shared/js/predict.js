@@ -99,7 +99,7 @@ function response(resp) {
         var rows = new Array();
         for (i in category_results) {
           label = category_results[i]['label']
-          score = category_results[i]['score']
+          score = parseInt(category_results[i]['score'])
           rows.push([label, score]);
         }
         // Draw the chart showing detailed per category results

@@ -52,7 +52,7 @@ class PredictAPI(webapp.RequestHandler):
       # Authorize HTTP session with server credentials and obtain  
       # access to prediction API client library.
       http = credentials.authorize(httplib2.Http())
-      service = build('prediction', 'v1.4', http=http)
+      service = build('prediction', 'v1.6', http=http)
       papi = service.trainedmodels()
     
       # Read and parse JSON model description data.

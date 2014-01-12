@@ -53,7 +53,6 @@ class PredictAPI(webapp.RequestHandler):
       # access to prediction API client library.
       http = credentials.authorize(httplib2.Http())
       service = build('prediction', 'v1.6', http=http)
-      papi = service.trainedmodels()
     
       # Read and parse JSON model description data.
       models = parse_json_file(MODELS_FILE)
@@ -75,7 +74,7 @@ class PredictAPI(webapp.RequestHandler):
       if model['type'] == 'hosted':
         ret = service.hostedmodels().predict(project=model['project'], hostedModelName=model['hostedModelName'], body=body).execute()
       if model['type'] == 'trained':
-        ret = papi.predict(id=model['model_id'], body=body).execute()
+        ret = service.trainedmodels().predict(id=model['model_id'], body=body).execute()
       self.response.out.write(json.dumps(ret))
 
     except Exception, err:

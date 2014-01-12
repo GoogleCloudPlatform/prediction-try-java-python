@@ -26,7 +26,7 @@
       {
         "label" : "Phrase",
         "help"  : "Enter text for tag categorization.",
-        "rows"  : "3",
+        "rows"  : "1",
         "cols"  : "50"
       }
     ]
@@ -42,7 +42,7 @@
       {
         "label" : "Phrase",
         "help"  : "Enter a text comment for sentiment analysis",
-        "rows"  : "3",
+        "rows"  : "1",
         "cols"  : "50"
       }
     ]

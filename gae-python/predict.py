@@ -74,7 +74,7 @@ class PredictAPI(webapp.RequestHandler):
       if model['type'] == 'hosted':
         ret = service.hostedmodels().predict(project=model['project'], hostedModelName=model['hostedModelName'], body=body).execute()
       if model['type'] == 'trained':
-        ret = service.trainedmodels().predict(id=model['model_id'], body=body).execute()
+        ret = service.trainedmodels().predict(id=model['id'], project=model['project'], body=body).execute()
       self.response.out.write(json.dumps(ret))
 
     except Exception, err:

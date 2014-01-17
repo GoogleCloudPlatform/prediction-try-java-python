@@ -40,7 +40,7 @@ class PredictAPI(webapp.RequestHandler):
      client code running the browser.
   '''
 
-  def get(self):
+  def post(self):
     try:
       # Read server-side OAuth 2.0 credentials from datastore and
       # raise an exception if credentials not found.

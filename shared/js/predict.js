@@ -139,7 +139,7 @@ function predict() {
   // will be fielded asynchronously by the response() callback function.
   $.ajax({
     url: uri,
-    type: 'GET',
+    type: 'POST',
     dataType: 'text',
     success: [response]
   });

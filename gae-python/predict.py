@@ -65,7 +65,7 @@ class PredictAPI(webapp.RequestHandler):
       vals = []
       for field in model['fields']:
         label = field['label']
-        val = str(self.request.get(label))
+        val = self.request.get(label).encode('utf-8')
         vals.append(val)
       body = {'input' : {'csvInstance' : vals }}
       logging.info('model:' + model_name + ' body:' + str(body))

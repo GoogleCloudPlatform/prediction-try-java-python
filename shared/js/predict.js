@@ -125,14 +125,15 @@ function predict() {
   $('#switch_chart_link').text('');
 
   // Build URI params containing selected model and input data.
-  var uri = '/predict?model=';
-  model = $('#model_id option:selected').val();
-  model = escape(model);
-  uri += model;
+  var uri = '/predict';
+  var data = {}
+  data['model']  = $('#model_id option:selected').val();
+  //uri += model;
   input_fields = $('.input');
   for (i = 0; i < input_fields.length; i++) {
     elem = input_fields[i];
-    uri += '&' + escape(elem.id) + '=' + escape(elem.value);
+    data[elem.id] = elem.value;
+    //uri += '&' + escape(elem.id) + '=' + escape(elem.value);
   }
 
   // Send the prediction call in a jQuery AJAX request. The response
@@ -140,6 +141,7 @@ function predict() {
   $.ajax({
     url: uri,
     type: 'POST',
+    data: data,
     dataType: 'text',
     success: [response]
   });

@@ -80,9 +80,10 @@ class HomePage(webapp.RequestHandler):
                                  scope=SCOPE,
                                  user_agent=USER_AGENT,
                                  access_type = 'offline',
-                                 approval_prompt='force')
-      callback = self.request.relative_url('/auth_return')
-      authorize_url = flow.step1_get_authorize_url(callback)
+                                 approval_prompt='force',
+                                 redirect_uri=self.request.relative_url('/auth_return')
+                                )
+      authorize_url = flow.step1_get_authorize_url()
 
       # Save flow object in memcache for later retrieval on OAuth callback,
       # and redirect this session to Google's OAuth 2.0 authorization site.

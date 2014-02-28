@@ -1,9 +1,12 @@
 {
   "Language Detection" : {
-    "model_id"    : "languages",
-    "user_list"   : {},
-    "description" : "This model infers the language of text input.",
-    "fields"      : [
+    "id"              : "languages",
+    "type"            : "hosted",
+    "project"         : "414649711441",
+    "hostedModelName" : "sample.languageid",
+    "user_list"       : {},
+    "description"     : "This model infers the language of text input.",
+    "fields"          : [
       {
         "label" : "Phrase",
         "help"  : "Enter text in English, French or Spanish.",
@@ -12,19 +15,36 @@
       }
     ]
   },
-  "SMS Spam Detection" : {
-    "model_id"    : "smsspam",
-    "user_list"   : {},
-    "description" :
-      "This model classifies SMS messages as spam or ham (legitimate).",
-    "fields"      : [
+  "Tag Categorizer" : {
+    "id"              : "tagcategorizer",
+    "type"            : "hosted",
+    "project"         : "414649711441",
+    "hostedModelName" : "sample.tagger",
+    "user_list"       : {},
+    "description"     : "Tags a given text as pertaining to android, appengine, chrome, or youtube.",
+    "fields"          : [
       {
-        "label" : "Text Message",
-        "help"  : "Enter a text message for spam analysis.",
-        "rows"  : "3",
+        "label" : "Phrase",
+        "help"  : "Enter text for tag categorization.",
+        "rows"  : "1",
+        "cols"  : "50"
+      }
+    ]
+  },
+  "Sentiment Predictor" : {
+    "id"              : "sentimentpredictor",
+    "type"            : "hosted",
+    "project"         : "414649711441",
+    "hostedModelName" : "sample.sentiment",
+    "user_list"       : {},
+    "description"     : "Analyzes the sentiment of a short English-language text snippet.",
+    "fields"          : [
+      {
+        "label" : "Phrase",
+        "help"  : "Enter a text comment for sentiment analysis",
+        "rows"  : "1",
         "cols"  : "50"
       }
     ]
   }
 }
-

@@ -40,7 +40,7 @@ class PredictAPI(webapp.RequestHandler):
      client code running the browser.
   '''
 
-  def get(self):
+  def post(self):
     try:
       # Read server-side OAuth 2.0 credentials from datastore and
       # raise an exception if credentials not found.
@@ -52,8 +52,7 @@ class PredictAPI(webapp.RequestHandler):
       # Authorize HTTP session with server credentials and obtain  
       # access to prediction API client library.
       http = credentials.authorize(httplib2.Http())
-      service = build('prediction', 'v1.4', http=http)
-      papi = service.trainedmodels()
+      service = build('prediction', 'v1.6', http=http)
     
       # Read and parse JSON model description data.
       models = parse_json_file(MODELS_FILE)
@@ -66,13 +65,16 @@ class PredictAPI(webapp.RequestHandler):
       vals = []
       for field in model['fields']:
         label = field['label']
-        val = str(self.request.get(label))
+        val = self.request.get(label).encode('utf-8')
         vals.append(val)
       body = {'input' : {'csvInstance' : vals }}
       logging.info('model:' + model_name + ' body:' + str(body))
 
       # Make a prediction and return JSON results to Javascript client.
-      ret = papi.predict(id=model['model_id'], body=body).execute()
+      if model['type'] == 'hosted':
+        ret = service.hostedmodels().predict(project=model['project'], hostedModelName=model['hostedModelName'], body=body).execute()
+      if model['type'] == 'trained':
+        ret = service.trainedmodels().predict(id=model['id'], project=model['project'], body=body).execute()
       self.response.out.write(json.dumps(ret))
 
     except Exception, err:

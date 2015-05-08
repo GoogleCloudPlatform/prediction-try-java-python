@@ -76,9 +76,13 @@ Getting Started
 
   3. Build and deploy your app:
 
-    - For Python: modify the "application:" line in your app.yaml file to 
-      reflect your chosen app name and use the Google App Engine tools to 
-      deploy your app.
+    - For Python:
+      - Modify the "application:" line in your app.yaml file to
+         reflect your chosen app name and use the Google App Engine tools to
+         deploy your app.
+      - Install google-api-python-client library to your project vendor dir via pip:
+         `pip install -t vendor -r requirements.txt`
+         Note: this is only required for dev. On production this is done upon deployment
 
     - For Java: modify the contents of the "application" XML element in 
       your gae-java/src/main/webapp/WEB-INF/appengine-web.xml file to 
